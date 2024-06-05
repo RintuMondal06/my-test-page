@@ -12,12 +12,12 @@
 
             if (iOS) {
                 newLocation = "mindmod://";
-                console.log('The device is an iOS device');
+                console.log("The device is an iOS device");
             } else if (Android) {
-                console.log('The device is an Android device');
+                console.log("The device is an Android device");
                 newLocation = "intent://mindmod#Intent;scheme=mindmod;package=com.mindmod;end";
             } else {
-                console.log('The device is neither iOS nor Android');
+                console.log("The device is neither iOS nor Android");
                 // Optionally, set a fallback location for other devices
                 newLocation = "https://yourwebsite.com";
             }
