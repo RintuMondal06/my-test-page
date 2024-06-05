@@ -8,7 +8,9 @@ var Android = /Android/.test(navigator.userAgent);
 var newLocation;
 if (iOS) {
   newLocation = "mindmod://";
+  console.log('The device is an ios device);
 } else if (Android) {
+  console.log('The device is an android device);
   newLocation = "intent://mindmod#Intent;scheme=mindmod;package=com.mindmod;end";
 }
 console.log(newLocation)
