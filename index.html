@@ -1,20 +1,36 @@
-<html><head></head><body>
-<p>Please wait while we redirect you to Your APP NAME...</p>
-<p><a href="javascript:redirectToApp()">Open appname</a></p>
-<script>
-var redirectToApp = function() {
-var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-var Android = /Android/.test(navigator.userAgent);
-var newLocation;
-if (iOS) {
-  newLocation = "mindmod://";
-  console.log('The device is an ios device);
-} else if (Android) {
-  console.log('The device is an android device);
-  newLocation = "intent://mindmod#Intent;scheme=mindmod;package=com.mindmod;end";
-}
-console.log(newLocation)
-window.location.replace(newLocation);
-} window.onload = redirectToApp;
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Your App</title>
+    <script>
+        function redirectToApp() {
+            var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            var Android = /Android/.test(navigator.userAgent);
+            var newLocation;
+
+            if (iOS) {
+                newLocation = "mindmod://";
+                console.log('The device is an iOS device');
+            } else if (Android) {
+                console.log('The device is an Android device');
+                newLocation = "intent://mindmod#Intent;scheme=mindmod;package=com.mindmod;end";
+            } else {
+                console.log('The device is neither iOS nor Android');
+                // Optionally, set a fallback location for other devices
+                newLocation = "https://yourwebsite.com";
+            }
+
+            console.log(newLocation);
+            window.location.replace(newLocation);
+        }
+
+        window.onload = redirectToApp;
+    </script>
+</head>
+<body>
+    <p>Please wait while we redirect you to Your APP NAME...</p>
+    <p><a href="javascript:redirectToApp()">Open appname</a></p>
+</body>
+</html>
